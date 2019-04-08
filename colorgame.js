@@ -36,9 +36,15 @@ function assignSquare() {
     return arr;
 }
 
+//Squares in game have a class of sqare. Using this variable to store them for use in rngSquares/ event listening.
 var squares = document.querySelectorAll(".square")
+
+//Will use .innerText method to modify the h1 to display the rgb Color that needs to be selected
 var rgbText = document.querySelector("h1")
 var colorList = assignSquare();
 
+//Randomly assigning colors to squares on board.
 rngSquares(squares, colorList)
+
+//Choosing a random square's rgb value for the game.
 rgbText.innerText = colorList[randomInt(6)]
