@@ -43,8 +43,46 @@ var squares = document.querySelectorAll(".square")
 var rgbText = document.querySelector("h1")
 var colorList = assignSquare();
 
+//Variable that we will use to display incorrect or correct status after selection
+var resp = document.querySelector(".checker")
+
 //Randomly assigning colors to squares on board.
 rngSquares(squares, colorList)
 
 //Choosing a random square's rgb value for the game.
 rgbText.innerText = colorList[randomInt(6)]
+
+var banner = document.querySelector(".banner")
+
+//Adding event listeners for each square
+for (i=0; i < squares.length; i++) {
+    squares[i].addEventListener("click",function(){
+
+        //if the selected square is the correct RGB value display Corect! and Reset the board with a new set of colors
+        if (this.style.backgroundColor.toUpperCase() === rgbText.innerText) {
+            resp.innerText = "Correct!";
+
+            setTimeout(function(){
+                resp.innerText = null;
+            }, 750)
+
+            colorList = assignSquare();
+            banner.style.backgroundColor = rgbText.innerText;
+            rngSquares(squares, colorList);
+            rgbText.innerText = colorList[randomInt(6)];
+
+        }
+
+        //if the selected square does not match the RGB text in the banner - notify the user that that was an incorrect selection and hide the square.
+        else {
+            this.style.backgroundColor = "rgb(50, 50, 50)";
+            resp.innerText = "Wrong!";
+
+            setTimeout(function(){
+                resp.innerText = null;
+            }, 750);
+
+        }
+
+    })
+}

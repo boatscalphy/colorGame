@@ -32,11 +32,11 @@ body {
     color: rgb(78, 119, 206);
 
 }
-.menutext:hover {
+
+.menuoption:hover {
     background-color:rgb(78, 119, 206);
     color: white;
 }
-
 .square {
     width: 30%;
     padding-bottom: 30%;
