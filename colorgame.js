@@ -50,7 +50,7 @@ var gameMode = "HARD"
 var squares = document.querySelectorAll(".square")
 
 //Will use .innerText method to modify the h1 to display the rgb Color that needs to be selected
-var rgbText = document.querySelector("h1")
+var rgbText = document.querySelector(".colorSelector")
 var colorList = assignSquare();
 
 //Variable that we will use to display incorrect or correct status after selection
@@ -131,7 +131,9 @@ for (i=0; i < difficulty.length; i++) {
     difficulty[i].addEventListener("click",function(){
         //Display 3 tiles for Easy mode
         if (this.innerText === "EASY") {
-            gameMode = "EASY"        
+            gameMode = "EASY"
+            difficulty[0].classList.add("active")
+            difficulty[1].classList.remove("active")        
             colorList = assignSquare()
             rngSquares(squares, colorList)
             rgbText.innerText = colorList[randomInt(3)]
@@ -143,6 +145,8 @@ for (i=0; i < difficulty.length; i++) {
         //Display all 6 tiles for hard mode
         else {
             gameMode = "HARD"
+            difficulty[1].classList.add("active")
+            difficulty[0].classList.remove("active")      
             colorList = assignSquare()
             rngSquares(squares, colorList)
             rgbText.innerText = colorList[randomInt(6)]
