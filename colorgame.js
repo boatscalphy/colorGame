@@ -13,9 +13,9 @@ function rngSquares(square, colors) {
 
 // Function to generate a random RGB color
 function generateColor() {
-    var red = String(randomInt(255));
-    var green = String(randomInt(255));
-    var blue = String(randomInt(255));
+    var red = String(randomInt(256));
+    var green = String(randomInt(256));
+    var blue = String(randomInt(256));
 
     //Making sure we do not randomly generate the same color as the board.
     if (red === 50 && green === 50 && blue === 50) {
@@ -87,10 +87,23 @@ for (i=0; i < squares.length; i++) {
                     resp.innerText = null;
                 }, 1750)
                 
-                colorList = assignSquare();
                 banner.style.backgroundColor = rgbText.innerText;
-                rngSquares(squares, colorList);
-                rgbText.innerText = colorList[randomInt(6)];
+
+                if (gameMode === "EASY") {
+                    colorList = assignSquare()
+                    rngSquares(squares, colorList)
+                    rgbText.innerText = colorList[randomInt(3)]
+                    for (j=3; j < squares.length; j++) {
+                        squares[j].style.backgroundColor = "RGB(50, 50, 50)"
+                    }
+                }
+
+                else {
+                    colorList = assignSquare();
+                    banner.style.backgroundColor = rgbText.innerText;
+                    rngSquares(squares, colorList);
+                    rgbText.innerText = colorList[randomInt(6)];
+                }
            
             }
                 
@@ -121,8 +134,7 @@ for (i=0; i < difficulty.length; i++) {
             gameMode = "EASY"        
             colorList = assignSquare()
             rngSquares(squares, colorList)
-            rgbText.innerText = colorList[randomInt(4)]
-            console.log(randomInt(6))
+            rgbText.innerText = colorList[randomInt(3)]
             for (j=3; j < squares.length; j++) {
                 squares[j].style.backgroundColor = "RGB(50, 50, 50)"
             }

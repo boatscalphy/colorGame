@@ -11,21 +11,24 @@ body {
 @media (max-width: 768px) {
     h1{
         font-size:3em;
+        line-height:1.1;
     }
     
     h2 {
         font-size:1.5em;
+        line-height:1.1;
     }
 }
 
 @media (min-width: 768px) {
     h1{
         font-size:5em;
+        line-height:1.1;
     }
 }
 
 .menutext {
-
+    padding: 0 10px;
     color: rgb(78, 119, 206);
 
 }
@@ -33,6 +36,7 @@ body {
 .menuoption:hover {
     background-color:rgb(78, 119, 206);
     color: white;
+    padding: 0 10px;
 }
 .square {
     width: 30%;
@@ -47,4 +51,9 @@ body {
     max-width: 600px;;
     margin: 0 auto;
 
+}
+
+.checker {
+    width:20%;
+    text-align:center;
 }
