@@ -68,9 +68,25 @@ var banner = document.querySelector(".banner")
 //Creating an event listener to generate a new list of colors for tiles when clicked on.
 document.querySelector(".newcolors").addEventListener("click",function(){
     banner.style.backgroundColor = "rgb(78, 119, 206)"
-    colorList = assignSquare();
-    rngSquares(squares, colorList);
-    rgbText.innerText = colorList[randomInt(6)];
+
+    if (gameMode === "HARD") {
+        
+        colorList = assignSquare();
+        rngSquares(squares, colorList);
+        rgbText.innerText = colorList[randomInt(6)];
+    
+    }
+
+    else {
+
+        colorList = assignSquare();
+        rngSquares(squares, colorList);
+        rgbText.innerText = colorList[randomInt(3)];
+        for (j=3; j < squares.length; j++) {
+            squares[j].style.backgroundColor = "RGB(50, 50, 50)";
+        }
+
+    }
 })
 
 //Adding event listeners for each square
