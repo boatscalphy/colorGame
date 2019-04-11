@@ -38,6 +38,7 @@ body {
     background-color:rgb(78, 119, 206);
     color: white;
     padding: 0 10px;
+    transition: all 0.8s;
 }
 
 .active {
@@ -52,7 +53,7 @@ body {
     float:left;
     background:rgb(50,50,50);
     border-radius:25px;
-    transition: all 0.4s;
+    transition: all 0.8s;
 }
 
 .container {
